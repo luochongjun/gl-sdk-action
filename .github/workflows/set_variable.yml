@@ -12,10 +12,14 @@ jobs:
   printInputs:
     runs-on: ubuntu-20.4
     steps:
-    env:
-      SOURCECODEURL: ${{ github.event.inputs.sourcecode }}
-      PKGNAME: ${{ github.event.inputs.pkgname }}
-    - run: |
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Initialization environment
+      env:
+        SOURCECODEURL: ${{ github.event.inputs.sourcecode }}
+        PKGNAME: ${{ github.event.inputs.pkgname }}
+      run: |
         cd $GITHUB_WORKSPACE
         chmod +x ./build.sh
         ./build.sh
