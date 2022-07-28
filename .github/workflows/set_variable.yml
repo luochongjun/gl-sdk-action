@@ -10,7 +10,7 @@ on:
         
 jobs:
   printInputs:
-    runs-on: ubuntu-20.4
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@master
