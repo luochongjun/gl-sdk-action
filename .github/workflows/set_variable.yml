@@ -1,0 +1,21 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      sourcecode:
+        description: 'Source code URL'     
+        required: true
+      pkgname:
+        description: 'Openwrt package name'  
+        required: true
+        
+jobs:
+  printInputs:
+    runs-on: ubuntu-20.4
+    steps:
+    env:
+      SOURCECODEURL: ${{ github.event.inputs.sourcecode }}
+      PKGNAME: ${{ github.event.inputs.pkgname }}
+    - run: |
+        cd $GITHUB_WORKSPACE
+        chmod +x ./build.sh
+        ./build.sh
