@@ -10,7 +10,11 @@ sudo -E apt-get install git  asciidoc bash bc binutils bzip2 fastjar flex gawk g
 git config --global user.email "aa@163.com"
 git config --global user.name "aa"
 
+mkdir -p  ${WORKDIR}/buildsource
+cd  ${WORKDIR}/buildsource
 git clone "$SOURCECODEURL" buildsource
+cd  ${WORKDIR}
+
 git clone https://github.com/gl-inet-builder/openwrt-sdk-siflower-1806.git openwrt-sdk
 cd openwrt-sdk
 sed -i "1i\src-link local ${WORKDIR}/buildsource" feeds.conf.default
