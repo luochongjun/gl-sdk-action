@@ -12,7 +12,7 @@ git config --global user.name "aa"
 
 mkdir -p  ${WORKDIR}/buildsource
 cd  ${WORKDIR}/buildsource
-git clone "$SOURCECODEURL" buildsource
+git clone "$SOURCECODEURL"
 cd  ${WORKDIR}
 
 git clone https://github.com/gl-inet-builder/openwrt-sdk-siflower-1806.git openwrt-sdk
