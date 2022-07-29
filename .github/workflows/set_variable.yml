@@ -9,7 +9,7 @@ on:
         required: true
         
 jobs:
-  printInputs:
+  setpackage:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
@@ -23,3 +23,9 @@ jobs:
         cd $GITHUB_WORKSPACE
         chmod +x ./build.sh
         ./build.sh
+    - name: Release and Upload Assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: "*.ipk"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

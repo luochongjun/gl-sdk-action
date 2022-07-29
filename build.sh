@@ -23,3 +23,6 @@ sed -i "1i\src-link local ${WORKDIR}/buildsource" feeds.conf.default
 echo CONFIG_ALL=y >.config
 make defconfig
 make V=s ./package/feeds/local/${PKGNAME}/compile
+
+find bin -type f -exec ls -lh {} \;
+find bin -type f -name "${PKGNAME}*.ipk" -exec cp -f {} "${WORKDIR}" \; 
