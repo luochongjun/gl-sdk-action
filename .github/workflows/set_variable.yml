@@ -15,7 +15,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Initialization environment
+    - name: build ipk
+      id: build
       env:
         SOURCECODEURL: ${{ github.event.inputs.sourcecode }}
         PKGNAME: ${{ github.event.inputs.pkgname }}
@@ -23,9 +24,9 @@ jobs:
         cd $GITHUB_WORKSPACE
         chmod +x ./build.sh
         ./build.sh
-    - name: Release and Upload Assets
-      uses: softprops/action-gh-release@v1
+
+    - uses: actions/upload-artifact@v2
       with:
-        files: "*.ipk"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: target_ipk
+        path: |
+          ./*ipk*
