@@ -25,4 +25,4 @@ make defconfig
 make V=s ./package/feeds/local/${PKGNAME}/compile
 
 find bin -type f -exec ls -lh {} \;
-find bin -type f -name "${PKGNAME}*.ipk" -exec cp -f {} "${WORKDIR}" \; 
+find bin -type f -name "*.ipk" -exec cp -f {} "${WORKDIR}" \; 
