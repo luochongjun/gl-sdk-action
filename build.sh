@@ -18,4 +18,4 @@ sed -i "1i\src-link local ${WORKDIR}/buildsource" feeds.conf.default
 ./scripts/feeds install -a
 echo CONFIG_ALL=y >.config
 make defconfig
-make V=s ./package/${PKGNAME}/compile
+make V=s ./package/feeds/local${PKGNAME}/compile
