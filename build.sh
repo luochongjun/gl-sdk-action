@@ -40,6 +40,7 @@ case "$BOARD" in
 		axt1800_sdk_get
 	;;
 	*)
+esac
 
 cd openwrt-sdk
 sed -i "1i\src-link local ${WORKDIR}/buildsource" feeds.conf.default
