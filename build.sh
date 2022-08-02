@@ -1,6 +1,7 @@
 #!/bin/sh
 echo SOURCECODEURL: "$SOURCECODEURL"
 echo PKGNAME: "$PKGNAME"
+echo BOARD: "$BOARD"
 
 WORKDIR="$(pwd)"
 
@@ -15,7 +16,31 @@ cd  ${WORKDIR}/buildsource
 git clone "$SOURCECODEURL"
 cd  ${WORKDIR}
 
-git clone https://github.com/gl-inet-builder/openwrt-sdk-siflower-1806.git openwrt-sdk
+
+mips_siflower_sdk_get()
+{
+	 git clone https://github.com/gl-inet-builder/openwrt-sdk-siflower-1806.git openwrt-sdk
+}
+
+axt1800_sdk_get()
+{
+	wget -q -O openwrt-sdk.tar.xz https://fw.gl-inet.com/releases/v21.02-SNAPSHOT/sdk/openwrt-sdk-ipq807x-ipq60xx_gcc-5.5.0_musl_eabi.Linux-x86_64.tar.xz
+	mkdir -p ${WORKDIR}/openwrt-sdk
+	tar -Jxf openwrt-sdk.tar.xz -C ${WORKDIR}/openwrt-sdk --strip=1
+}
+
+
+
+case "$BOARD" in
+	"SF1200" |\
+	"SFT1200" )
+		mips_siflower_sdk_get
+	;;
+	"AXT1800" )
+		axt1800_sdk_get
+	;;
+	*)
+
 cd openwrt-sdk
 sed -i "1i\src-link local ${WORKDIR}/buildsource" feeds.conf.default
 ./scripts/feeds update -a

@@ -1,6 +1,14 @@
 on: 
   workflow_dispatch:
     inputs:
+      device:
+        description: 'Select device'     
+        required: true
+        type: choice
+        options:
+        - SF1200
+        - SF1200
+        - AXT1800
       sourcecode:
         description: 'Source code URL'     
         required: true
@@ -20,6 +28,7 @@ jobs:
       env:
         SOURCECODEURL: ${{ github.event.inputs.sourcecode }}
         PKGNAME: ${{ github.event.inputs.pkgname }}
+        BOARD: ${{ github.event.inputs.device }}
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x ./build.sh
