@@ -36,6 +36,6 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: target_ipk
+        name: ${{ github.event.inputs.pkgname }}_related_ipks
         path: |
           ./*ipk*
