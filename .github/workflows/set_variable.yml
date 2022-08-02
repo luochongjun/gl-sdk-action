@@ -6,9 +6,9 @@ on:
         required: true
         type: choice
         options:
-        - SF1200
-        - SF1200
         - AXT1800
+        - SF1200
+        - SFT1200
       sourcecode:
         description: 'Source code URL'     
         required: true
