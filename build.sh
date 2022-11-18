@@ -39,6 +39,10 @@ axt1800_sdk_get()
 	sed -i '246,258d' ${WORKDIR}/openwrt-sdk/include/package-ipkg.mk
 }
 
+mt7981_sdk_get()
+{
+	 git clone https://github.com/gl-inet-builder/openwrt-sdk-mt7981.git  openwrt-sdk
+}
 
 
 case "$BOARD" in
@@ -48,6 +52,9 @@ case "$BOARD" in
 	;;
 	"AXT1800" )
 		axt1800_sdk_get
+	;;
+	"MT2500" )
+		mt7981_sdk_get
 	;;
 	*)
 esac
