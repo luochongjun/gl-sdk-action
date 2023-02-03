@@ -6,8 +6,10 @@ on:
         required: true
         type: choice
         options:
+        - AX1800
         - AXT1800
         - MT2500
+        - MT3000
         - SF1200
         - SFT1200
       sourcecode:
