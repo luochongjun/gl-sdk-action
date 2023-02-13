@@ -9,7 +9,7 @@ echo PASSWORD: "$PASSWORD"
 WORKDIR="$(pwd)"
 
 sudo -E apt-get update
-sudo -E apt-get install git  asciidoc bash bc binutils bzip2 fastjar flex gawk gcc genisoimage gettext git intltool jikespg libgtk2.0-dev libncurses5-dev libssl1.0-dev make mercurial patch perl-modules python2.7-dev rsync ruby sdcc subversion unzip util-linux wget xsltproc zlib1g-dev zlib1g-dev -y
+sudo -E apt-get install git  asciidoc bash bc binutils bzip2 fastjar flex gawk gcc genisoimage gettext git intltool jikespg libgtk2.0-dev libncurses5-dev libssl-dev make mercurial patch perl-modules python2.7-dev rsync ruby sdcc subversion unzip util-linux wget xsltproc zlib1g-dev zlib1g-dev -y
 
 git config --global user.email "${EMAIL}"
 git config --global user.name "aa"
@@ -54,7 +54,7 @@ case "$BOARD" in
 	"AXT1800" )
 		axt1800_sdk_get
 	;;
-	"mt3000" |\
+	"MT3000" |\
 	"MT2500" )
 		mt7981_sdk_get
 	;;
