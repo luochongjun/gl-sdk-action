@@ -71,6 +71,7 @@ cat feeds.conf.default
 ./scripts/feeds install -a
 echo CONFIG_ALL=y >.config
 make defconfig
+make V=s ./package/feeds/luci/luci-base/compile
 make V=s ./package/feeds/githubaction/${PKGNAME}/compile
 
 find bin -type f -exec ls -lh {} \;
